@@ -1,0 +1,41 @@
+<div class="list row">
+  <div class="col-md-12 d-flex flex-row">
+    <button class="btn btn-primary pl-5 " (click)="getPlayersMostPasses()">
+      Get Players Most Passes
+    </button>
+    <p class="m-1"></p>
+    <button class="btn btn-primary pl-5" (click)="getPlayersMostRushingYards()">
+      Get Players Most Rushing Yards
+    </button>
+    <p class="m-1"></p>
+    <button class="btn btn-primary pl-5" (click)="getPlayersLeastRushingYards()">
+      Get Players Least Rushing Yards
+    </button>
+    <p class="m-1"></p>
+    <button class="btn btn-primary pl-5" (click)="getPlayersSortedMostToFewest()">
+      Get Players Sorted Most To Fewest
+    </button>
+    <p class="m-1"></p>
+    <button class="btn btn-primary pl-5" (click)="getPlayersMostSacks()">
+      Get Players Most Sacks
+    </button>
+
+   
+  </div>
+  <div *ngIf="!currentPlayer">
+    <br />
+    <p>Please click on a button...</p>
+  </div>
+  <div *ngIf="result">
+    <br />
+    <ul class="list-group">
+        <li
+          class="list-group-item m-3"
+          *ngFor="let res of result; let i = index"
+        >
+        
+        {{res | json}}
+        </li>
+      </ul>
+  </div>
+</div>

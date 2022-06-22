@@ -1,0 +1,89 @@
+<div>
+  <div *ngIf="currentPlayer._id" class="edit-form">
+    <h4>Player Detail</h4>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="currentPlayer.name"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="rushing yards">Rushing Yards</label>
+        <input
+          type="text"
+          class="form-control"
+          id="rushing yards"
+          required
+          [(ngModel)]="currentPlayer['rushing yards']"
+          name="rushing yards"
+        />
+      </div> <div class="form-group">
+        <label for="touchdowns thrown">Touchdowns Thrown</label>
+        <input
+          type="text"
+          class="form-control"
+          id="touchdowns thrown"
+          required
+          [(ngModel)]="currentPlayer['touchdowns thrown']"
+          name="touchdowns thrown"
+        />
+      </div> <div class="form-group">
+        <label for="Sacks">Sacks</label>
+        <input
+          type="text"
+          class="form-control"
+          id="sacks"
+          required
+          [(ngModel)]="currentPlayer.sacks"
+          name="sacks"
+        />
+      </div> <div class="form-group">
+        <label for="missed field goals">Missed Field Goals</label>
+        <input
+          type="text"
+          class="form-control"
+          id="missed field goals"
+          required
+          [(ngModel)]="currentPlayer['missed field goals']"
+          name="missed field goals"
+        />
+      </div> <div class="form-group">
+        <label for="catches made">Catches Made</label>
+        <input
+          type="text"
+          class="form-control"
+          id="catches made"
+          required
+          [(ngModel)]="currentPlayer['catches made']"
+          name="catches made"
+        />
+      </div>
+     
+    </form>
+
+
+    <button class="btn btn-danger m-5" (click)="deletePlayer()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-success "
+      (click)="updatePlayer()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentPlayer._id">
+    <br />
+    <p>Cannot access this Player...</p>
+  </div>
+</div>

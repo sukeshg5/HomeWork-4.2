@@ -1,0 +1,75 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="Player.name"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="rushing yards">Rushing Yards</label>
+        <input
+          type="text"
+          class="form-control"
+          id="rushing yards"
+          required
+          [(ngModel)]="Player['rushing yards']"
+          name="rushing yards"
+        />
+      </div> <div class="form-group">
+        <label for="touchdowns thrown">Touchdowns Thrown</label>
+        <input
+          type="text"
+          class="form-control"
+          id="touchdowns thrown"
+          required
+          [(ngModel)]="Player['touchdowns thrown']"
+          name="touchdowns thrown"
+        />
+      </div> <div class="form-group">
+        <label for="Sacks">Sacks</label>
+        <input
+          type="text"
+          class="form-control"
+          id="sacks"
+          required
+          [(ngModel)]="Player.sacks"
+          name="sacks"
+        />
+      </div> <div class="form-group">
+        <label for="missed field goals">Missed Field Goals</label>
+        <input
+          type="text"
+          class="form-control"
+          id="missed field goals"
+          required
+          [(ngModel)]="Player['missed field goals']"
+          name="missed field goals"
+        />
+      </div> <div class="form-group">
+        <label for="catches made">Catches Made</label>
+        <input
+          type="text"
+          class="form-control"
+          id="catches made"
+          required
+          [(ngModel)]="Player['catches made']"
+          name="catches made"
+        />
+      </div>
+
+      <button (click)="savePlayer()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Player was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newPlayer()">Add</button>
+    </div>
+  </div>
+</div>

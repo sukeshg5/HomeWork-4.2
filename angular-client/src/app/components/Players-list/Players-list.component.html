@@ -1,0 +1,93 @@
+<div class="list row">
+  <div class="col-md-8 mt-5">
+  
+  </div>
+  <div class="col-md-6">
+    <h4>Players List</h4>
+      
+       <table>
+        <tr >
+          
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name</th>
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+          <th>Rushing Yards</th>
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+          <th>Touchdowns Thrown</th> 
+          <th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          <th>Sacks</th> 
+          <th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          <th>Missed Field Goals</th> 
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+          <th>Catches Made</th>
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+
+        </tr>
+      </table>
+     
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let Player of Players; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActivePlayer(Player, i)"
+      >
+      
+       <table>
+        <tr >
+          
+          <td>{{ Player.name }}</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>{{ Player["rushing yards"] }}</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>{{ Player["touchdowns thrown"] }}</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>{{ Player.sacks }}</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>{{ Player["missed field goals"] }}</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>{{ Player["catches made"] }}</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      </li>
+    </ul>
+
+    
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentPlayer">
+      <h4>Player Selected</h4>
+      <div>
+        <label><strong>ID:</strong></label> {{ currentPlayer._id }}
+      </div>
+      <div>
+        <label><strong>Name:</strong></label> {{ currentPlayer.name }}
+      </div> <div>
+        <label><strong>Rushing Yards:</strong></label> {{ currentPlayer["rushing yards"]  }}
+      </div> <div>
+        <label><strong>Touchdowns Thrown:</strong></label> {{ currentPlayer["touchdowns thrown"] }}
+      </div>
+      <div>
+        <label><strong>Sacks:</strong></label>
+        {{ currentPlayer.sacks }}
+      </div>
+      <div>
+        <label><strong>Missed Field Goals:</strong></label>
+        {{ currentPlayer["missed field goals"] }}
+      </div>
+      <div>
+        <label><strong>Catches Made:</strong></label>
+        {{ currentPlayer["catches made"] }}
+      </div>
+
+      <a class="m-3 btn btn-sm btn-primary" routerLink="/Players/{{ currentPlayer._id }}">
+        Edit
+      </a>
+    </div>
+
+    <div *ngIf="!currentPlayer">
+      <br />
+      <p>Please click on a Player...</p>
+    </div>
+  </div>
+</div>
